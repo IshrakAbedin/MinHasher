@@ -49,14 +49,14 @@ public:
 #ifdef USE_STD_RANGES
 		for (const auto& set : m_CharacteristicsList)
 		{
-			std::vector<T> row;
-			row.reserve(m_HashCount);
+			std::vector<T> signature;
+			signature.reserve(m_HashCount);
 
 			const auto& maskFilter = [&](size_t x) { return set[x]; };
 
 			for (const auto& h : m_HashFunctions)
 			{
-				row.push_back(
+				signature.push_back(
 					std::ranges::min(
 						std::views::iota(0u)
 						| std::views::take(m_SetSize)
@@ -66,19 +66,19 @@ public:
 				);
 			}
 
-			signatureList.push_back(std::move(row));
+			signatureList.push_back(std::move(signature));
 		}
 #else // !USE_STD_RANGES
 		for (size_t i = 0u; i < m_SetCount; i++)
 		{
-			std::vector<T> row;
-			row.reserve(m_HashCount);
+			std::vector<T> signature;
+			signature.reserve(m_HashCount);
 
 			for (size_t j = 0u; j < m_HashCount; j++)
 			{
-				row.push_back(MAX_VALUE);
+				signature.push_back(MAX_VALUE);
 			}
-			signatureList.push_back(std::move(row));
+			signatureList.push_back(std::move(signature));
 		}
 
 		for (size_t i = 0u; i < m_SetSize; i++)
