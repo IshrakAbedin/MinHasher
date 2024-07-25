@@ -3,6 +3,10 @@
 
 ### A simple min-hashing algorithm using C++ standard ranges library (for learning purpose)
 
+An implementation of the basic min-hashing algorithm for Jaccard Similarity matching of sets.
+
+## Requirements
+
  The project relies on **[PREMAKE](https://premake.github.io/)** meta build system and can be compiled in Windows or Linux using a preferred build system (Expected to use MSVC/Clang with Visual Studio for Windows and GCC with GNU Make for Linux). It assumes that you have Premake 5 or higher installed and it can be directly accessed through the system environment.
 
 ## Packages Required for Linux
